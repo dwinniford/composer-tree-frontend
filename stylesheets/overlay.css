@@ -1,0 +1,78 @@
+.overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, .7);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none; 
+    z-index: 2;
+}
+
+.overlay.open {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+
+
+.overlay-inner {
+    background: white;
+    width: 400px;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
+  }
+
+.overlay-buttons {
+    grid-row: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    
+}
+
+.audio-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    
+}
+
+.overlay-buttons.close {
+    display: none 
+}
+
+.overlay-button {
+    /* background: none;
+    color: black;
+    border: 4; */
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: aleoLight;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#delete-note.hide {
+    display: none;
+}
+
+.close {
+    background: none;
+    color: black;
+    border: 0;
+    /* makes it not look like a button */
+}

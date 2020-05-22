@@ -1,0 +1,11 @@
+.user-links.hide {
+    display: none; 
+}
+
+.user-form.hide {
+    display: none;
+}
+
+#facebook {
+    display: none
+}

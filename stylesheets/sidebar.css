@@ -1,0 +1,12 @@
+.sidebar {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    /* padding: 10px; */
+    
+}
+.sidebar-heading {
+    color: white;
+    text-align: center;
+}

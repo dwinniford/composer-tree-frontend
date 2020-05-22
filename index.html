@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Web</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/overlay.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/nav.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/user.css">
+    
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+
+</head>
+<body>
+    <main>
+        <nav>
+            <button id="view-webs" class="blue-button">View Your Song Webs</button>
+            <button id="add-web" class="blue-button">Add a Web</button>
+            <button id="logout" class="blue-button"> <p id="user-name"></p> Logout</button>
+        </nav>
+        
+        <div class="content-container">
+            <div class="sidebar"></div>
+
+            <div class="content">
+                <div class="content-header">
+                    <h1>Welcome to Song Web</h1>
+                    <p class="content-description">
+                        A voice note app to organize your song ideas and foster creativity.
+                    </p>
+                </div>
+                <div class="user-links">
+                    <button id="login" class="blue-button">Login</button>
+                    <button id="signup" class="blue-button">Signup</button>
+                    <button id="facebook" class="blue-button">Login with Facebook</button>
+                </div>
+                <div class="user-form"></div>
+                <div class="content-links"></div>
+                <div class="network-container"></div>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="overlay-inner">
+                <div class="content">
+                    <button class="close">× Close</button>
+                    <h1 id="overlay-title" name="overlay-title"></h1>
+                    <p id="overlay-description" name="overlay-description"></p>
+                </div>
+                <div class="recorder-container">
+                    <button id="record" class="blue-button">Record</button>
+                    <button id="stopRecord" class="blue-button" disabled>Stop</button>
+                    <article class="sound-clips"></article>
+                </div>
+                <div class="overlay-buttons">
+                    <button id="edit-note" class="overlay-button" >Edit</button>
+                    <button class="delete-button overlay-button" id="delete-note">Delete</button>
+                    <button id="create-child-note" class="overlay-button">New</button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</body>
+
+<script type="application/javascript" src="src/tree.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/network.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/form.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/nav_link.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/display_link.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/note.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/overlay.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/media_recorder.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/user.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/app.js" charset="UTF-8"></script>
+<script type="application/javascript" src="src/index.js" charset="UTF-8"></script>
+</html>
