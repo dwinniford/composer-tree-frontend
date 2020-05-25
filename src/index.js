@@ -1,7 +1,7 @@
 let BACKEND_URL
 if (window.location.href.includes("localhost")) {
     BACKEND_URL = 'http://localhost:3000';
-} else if (window.location.href.includes("song-web-fe")) {
+} else if (window.location.href.includes("composer-tree-frontend")) {
     BACKEND_URL = "https://song-web.herokuapp.com/"
 }
 const content = document.querySelector(".content")
