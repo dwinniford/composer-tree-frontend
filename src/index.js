@@ -2,7 +2,7 @@ let BACKEND_URL
 if (window.location.href.includes("localhost")) {
     BACKEND_URL = 'http://localhost:3000';
 } else if (window.location.href.includes("composer-tree-frontend")) {
-    BACKEND_URL = "https://song-web.herokuapp.com/"
+    BACKEND_URL = "https://song-web.herokuapp.com"
 }
 const content = document.querySelector(".content")
 const topNav = document.querySelector("NAV")
