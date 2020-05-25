@@ -1,4 +1,9 @@
-const BACKEND_URL = 'http://localhost:3000';
+let BACKEND_URL
+if (window.location.href.includes("localhost")) {
+    BACKEND_URL = 'http://localhost:3000';
+} else if (window.location.href.includes("song-web-fe")) {
+    BACKEND_URL = "https://song-web.herokuapp.com/"
+}
 const content = document.querySelector(".content")
 const topNav = document.querySelector("NAV")
 const heading = document.querySelector('h1')
