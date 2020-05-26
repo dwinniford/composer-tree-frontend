@@ -109,7 +109,8 @@ class Tree  {
             {credentials: 'include', headers: {'X-CSRF-Token': getCSRFToken()}})
                 .then(resp => resp.json())
                 .then(function(json) {
-                    const tree = new Tree(json)
+                    const tree = Tree.all.find(tree => tree.id === json.id)
+                    tree.notes = json.notes
                     tree.displayShow()
                 })
         })
@@ -119,7 +120,9 @@ class Tree  {
     static displayIndex(json) {
         // heading.innerHTML = ""
         // contentDescription.innerHTML = ''
-        json.forEach(tree => new Tree(tree))
+        if (Tree.all.length === 0) {
+            json.forEach(tree => new Tree(tree))
+        }
         sidebar.innerHTML = ''
         const sidebarHeading = document.createElement("h3")
         sidebarHeading.innerHTML = "Your Song Webs"
@@ -127,6 +130,7 @@ class Tree  {
         sidebar.appendChild(sidebarHeading)
         const sortButton = document.createElement('button')
         sortButton.innerHTML = "Sort Webs Alphabetically"
+        sortButton.classList.add("blue-button")
         sidebar.appendChild(sortButton)
         json.forEach(element => Tree.appendIndexButton(element));
         console.log(Tree.all)
@@ -151,7 +155,10 @@ class Tree  {
                     {credentials: 'include', headers: {'X-CSRF-Token': getCSRFToken()}})
                         .then(resp => resp.json())
                         .then(function(json) {
-                            const tree = new Tree(json)
+                            const tree = Tree.all.find(tree => tree.id === json.id)
+                            tree.notes = json.notes
+                            // this fetch returns the belongs to data of the tree instance whereas
+                            // the index only has the tree info.  need to find the tree in Tree.all and update with notes
                             tree.displayShow()
                         })
                 })
