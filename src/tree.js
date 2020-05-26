@@ -4,7 +4,13 @@ class Tree  {
         this.description = json.description;
         this.id = json.id; 
         this.notes = json.notes;
+        Tree.all.push(this)
+        console.log(Tree.all)
     }
+
+    static all = []
+    //  this variable needs to be instantiated as an array but when its returned not be reset as an empty array
+    // new Tree is not called until I click a tree button to load its show page
 
     static clearContent() {
         heading.innerHTML = ''
@@ -107,15 +113,49 @@ class Tree  {
                 })
         })
     }
+    
+
     static displayIndex(json) {
         // heading.innerHTML = ""
         // contentDescription.innerHTML = ''
+        json.forEach(tree => new Tree(tree))
         sidebar.innerHTML = ''
         const sidebarHeading = document.createElement("h3")
         sidebarHeading.innerHTML = "Your Song Webs"
         sidebarHeading.classList.add("sidebar-heading")
         sidebar.appendChild(sidebarHeading)
+        const sortButton = document.createElement('button')
+        sortButton.innerHTML = "Sort Webs Alphabetically"
+        sidebar.appendChild(sortButton)
         json.forEach(element => Tree.appendIndexButton(element));
+        console.log(Tree.all)
+        sortButton.addEventListener("click", function(event) {
+            const sortedIndex = Tree.all.sort((a, b) => {
+                if (a.title < b.title) {
+                    return -1
+                } else if (a.title > b.title) {
+                    return 1
+                }
+            })
+            sortedIndex.forEach(function(element) {
+                const item = document.createElement('button')
+                item.innerHTML = element.title
+                item.setAttribute("data-id", element.id )
+                item.classList.add("blue-button")
+                sidebar.appendChild(item)
+                item.addEventListener("click", function(event) {
+                    fetch(`${BACKEND_URL}/trees/${parseInt(event.target.getAttribute("data-id"))}`, 
+                    {credentials: 'include', headers: {'X-CSRF-Token': getCSRFToken()}})
+                        .then(resp => resp.json())
+                        .then(function(json) {
+                            const tree = new Tree(json)
+                            tree.displayShow()
+                        })
+                })
+            })
+        })
+        
+        
     }
 
     static addNewFormListener() {
