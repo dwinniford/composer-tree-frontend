@@ -102,6 +102,7 @@ class Tree  {
         item.innerHTML = element.title
         item.setAttribute("data-id", element.id )
         item.classList.add("blue-button")
+        item.classList.add("tree-index-button")
         sidebar.appendChild(item)
         item.addEventListener("click", function(event) {
             fetch(`${BACKEND_URL}/trees/${parseInt(event.target.getAttribute("data-id"))}`, 
@@ -137,11 +138,13 @@ class Tree  {
                     return 1
                 }
             })
-            sortedIndex.forEach(function(element) {
+            sidebar.querySelectorAll(".tree-index-button").forEach(element => element.remove())
+            sortedIndex.forEach(function(element) {  
                 const item = document.createElement('button')
                 item.innerHTML = element.title
                 item.setAttribute("data-id", element.id )
                 item.classList.add("blue-button")
+                item.classList.add("tree-index-button")
                 sidebar.appendChild(item)
                 item.addEventListener("click", function(event) {
                     fetch(`${BACKEND_URL}/trees/${parseInt(event.target.getAttribute("data-id"))}`, 
