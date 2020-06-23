@@ -1,19 +1,3 @@
-
-// function getCookie(cname) {
-//     var name = cname + "=";
-//     var ca = document.cookie.split(';');
-//     for(var i = 0; i < ca.length; i++) {
-//       var c = ca[i];
-//       while (c.charAt(0) == ' ') {
-//         c = c.substring(1);
-//       }
-//       if (c.indexOf(name) == 0) {
-//         return c.substring(name.length, c.length);
-//       }
-//     }
-//     return "";
-//   }
-
   function getCSRFToken() {
     return unescape(document.cookie.split('=')[1])
   }
@@ -26,6 +10,10 @@ class App {
     static init() {
         // sets up all event listeners for user login and signup and logout
         fetch(BACKEND_URL, {credentials: 'include'})
+            .then(resp => resp.json())
+            .then(function(json) {
+                console.log("fetched cookie:", json)
+            })
 
         signupButton.addEventListener("click", function(event){
             User.displaySignupForm()
