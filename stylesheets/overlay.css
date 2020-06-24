@@ -51,7 +51,7 @@
     border: 4; */
     display: inline-block;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     margin: 0;
     text-decoration: none;
     background: #0069ed;
@@ -75,4 +75,11 @@
     color: black;
     border: 0;
     /* makes it not look like a button */
+}
+
+@media (max-width: 500px) {
+    .overlay-inner {
+        width: 300px;
+        padding: 10px;
+    }
 }
