@@ -29,7 +29,10 @@ class User {
                 .then(resp => resp.json())
                 .then(function(json) {
                     if (json.errors) {
-                        alert(json.errors)
+                        const errorsContainer = userForm.querySelector('.errors-container')
+                        errorsContainer.innerHTML = json.errors.map(function(e) {
+                            return `<li>${e}</li>`
+                        })
                     } else {
                         userName.innerHTML = `Logged in as ${json.name}`
                         nav.classList.add("open")
@@ -37,8 +40,6 @@ class User {
                         userLinks.classList.add("hide")
                         userForm.innerHTML = ''
                     }
-                    console.log(json)
-                   
                 })
                 
             // after fetch display nav and remove form and user buttons

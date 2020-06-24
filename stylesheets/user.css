@@ -9,3 +9,7 @@
 #facebook {
     display: none
 }
+
+.errors-container {
+    color: red;
+}

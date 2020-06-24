@@ -9,6 +9,9 @@ class Form {
     render() {
         const form = document.createElement("FORM")
         form.action = BACKEND_URL + this.urlEnd
+        const errors = document.createElement('ul')
+        errors.classList.add("errors-container")
+        form.appendChild(errors)
         this.fieldsArray.forEach(function(element) {
             const input = document.createElement("INPUT")
             input.setAttribute("type", element[1])
