@@ -28,14 +28,21 @@ class User {
             fetch(BACKEND_URL + "/users", configObject)
                 .then(resp => resp.json())
                 .then(function(json) {
+                    if (json.errors) {
+                        alert(json.errors)
+                    } else {
+                        userName.innerHTML = `Logged in as ${json.name}`
+                        nav.classList.add("open")
+                        userForm.classList.add("hide")
+                        userLinks.classList.add("hide")
+                        userForm.innerHTML = ''
+                    }
                     console.log(json)
-                    userName.innerHTML = `Logged in as ${json.name}`
+                   
                 })
+                
             // after fetch display nav and remove form and user buttons
-            nav.classList.add("open")
-            userForm.classList.add("hide")
-            userLinks.classList.add("hide")
-            userForm.innerHTML = ''
+            
         })
     }
 
