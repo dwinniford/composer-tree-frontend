@@ -5,7 +5,6 @@ class Tree  {
         this.id = json.id; 
         this.notes = json.notes;
         Tree.all.push(this)
-        console.log(Tree.all)
     }
 
     static all = []
@@ -172,7 +171,6 @@ class Tree  {
         const form = content.querySelector("form")
         form.addEventListener("submit", function(event) {
             event.preventDefault()
-            console.log("submit")
             const titleInput = form.title.value  
             const descriptionInput = form.description.value
             const data = Tree.formData(titleInput, descriptionInput)

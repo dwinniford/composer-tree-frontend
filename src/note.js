@@ -42,7 +42,7 @@ class Note {
             stopRecordButton.classList.remove("hide")
         }
         // if note does not have a child note display delete button
-        console.log(this.edgeCount)
+        
         if (this.edgeCount > 1) {
             deleteNoteButton.classList.add("hide")
         } else {
@@ -208,7 +208,6 @@ class Note {
         const newRootNoteForm = document.querySelector('[name="create-root-note-form"]')
         newRootNoteForm.addEventListener('submit', function(event) {
             event.preventDefault()
-            console.log(event.currentTarget)
             const data = { note: {
                 title: event.currentTarget.title.value,
                 description: event.currentTarget.description.value
@@ -226,9 +225,7 @@ class Note {
             fetch(event.currentTarget.action, configObject)
                 .then(resp => resp.json())
                 .then(function(json) {
-                    console.log(json)
                     newRootNoteForm.remove()
-                    
                     fetch(`${BACKEND_URL}/trees/${json.tree_id}`)
                         .then(resp => resp.json())
                         .then(function(json) {
