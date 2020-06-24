@@ -10,10 +10,6 @@ class App {
     static init() {
         // sets up all event listeners for user login and signup and logout
         fetch(BACKEND_URL, {credentials: 'include'})
-            .then(resp => resp.json())
-            .then(function(json) {
-                console.log("fetched cookie:", json)
-            })
 
         signupButton.addEventListener("click", function(event){
             User.displaySignupForm()
