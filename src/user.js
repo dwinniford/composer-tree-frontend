@@ -78,13 +78,22 @@ class User {
                 })
                 .then(function(json) {
                     console.log(json)
-                    userName.innerHTML = `Logged in as ${json.name}`
+                    if (json.errors) {
+                        const errorsContainer = userForm.querySelector('.errors-container')
+                        errorsContainer.innerHTML = json.errors.map(function(e) {
+                            return `<li>${e}</li>`
+                        })
+                    } else {
+                        userName.innerHTML = `Logged in as ${json.name}`
+                        // after fetch display nav and remove form and user buttons
+                        nav.classList.add("open")
+                        userForm.classList.add("hide")
+                        userLinks.classList.add("hide")
+                        userForm.innerHTML = ''
+                    }
+                    
                 })
-            // after fetch display nav and remove form and user buttons
-            nav.classList.add("open")
-            userForm.classList.add("hide")
-            userLinks.classList.add("hide")
-            userForm.innerHTML = ''
+            
             
         })
     }
