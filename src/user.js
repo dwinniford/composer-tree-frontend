@@ -73,11 +73,9 @@ class User {
             }
             fetch(BACKEND_URL + "/login", configObject)
                 .then(function(resp){
-                    console.log(resp)
                     return resp.json()
                 })
                 .then(function(json) {
-                    console.log(json)
                     if (json.errors) {
                         const errorsContainer = userForm.querySelector('.errors-container')
                         errorsContainer.innerHTML = json.errors.map(function(e) {

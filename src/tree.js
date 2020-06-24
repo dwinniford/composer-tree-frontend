@@ -132,7 +132,6 @@ class Tree  {
         sortButton.classList.add("blue-button")
         sidebar.appendChild(sortButton)
         json.forEach(element => Tree.appendIndexButton(element));
-        console.log(Tree.all)
         sortButton.addEventListener("click", function(event) {
             const sortedIndex = Tree.all.sort((a, b) => {
                 if (a.title < b.title) {
